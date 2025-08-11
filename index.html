@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Crunchyroll Premium</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #f47521;
+            margin-bottom: 20px;
+        }
+        .button {
+            display: inline-block;
+            background: #f47521;
+            color: white;
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            margin: 30px 0;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+        }
+        .button:hover {
+            background: #e06612;
+            transform: scale(1.05);
+        }
+        .button:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .pulse {
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .note {
+            font-size: 14px;
+            color: #777;
+            margin-top: 30px;
+        }
+        .countdown {
+            font-size: 24px;
+            font-weight: bold;
+            color: #f47521;
+            margin: 20px 0;
+            height: 36px;
+        }
+        .loader {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Free Crunchyroll Premium Accounts</h1>
+        <p>Click the button below to claim your free premium account</p>
+        
+        <div class="countdown" id="countdown">Please wait: 10 seconds</div>
+        <button class="button" id="claimButton" disabled>WAIT TO CLAIM</button>
+        
+        <p>Limited accounts available - claim yours before they're gone!</p>
+        <div class="note">Accounts are first-come, first-served</div>
+    </div>
+
+    <script>
+        const claimButton = document.getElementById('claimButton');
+        const countdownElement = document.getElementById('countdown');
+        
+        let secondsLeft = 10;
+        
+        const countdown = setInterval(() => {
+            secondsLeft--;
+            countdownElement.textContent = `Please wait: ${secondsLeft} second${secondsLeft !== 1 ? 's' : ''}`;
+            
+            if (secondsLeft <= 0) {
+                clearInterval(countdown);
+                countdownElement.textContent = "READY! CLAIM NOW!";
+                claimButton.textContent = "CLAIM FREE ACCOUNT NOW";
+                claimButton.classList.add('pulse');
+                claimButton.disabled = false;
+            }
+        }, 1000);
+        
+        claimButton.addEventListener('click', function() {
+            this.innerHTML = '<span class="loader"></span> PROCESSING...';
+            this.disabled = true;
+            setTimeout(function() {
+                window.location.href = 'https://installchecker.com/cl/i/7dggj9';
+            }, 800);
+        });
+    </script>
+</body>
+</html>
